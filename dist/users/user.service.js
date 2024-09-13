@@ -31,10 +31,6 @@ let UserService = class UserService {
                 hashedPassword,
             });
             await this.usersRepository.insert(user);
-<<<<<<< HEAD
-=======
-            console.log(user);
->>>>>>> 26b5523f1264813fcfffeeff81ec0453cca0a4fc
             return user;
         }
         catch (error) {
