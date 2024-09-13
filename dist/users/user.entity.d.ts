@@ -1,5 +1,6 @@
 export declare class UserEntity {
     mail: string;
-    passw: string;
-    id: number;
+    name: string;
+    surname: string;
+    hashedPassword: string;
 }

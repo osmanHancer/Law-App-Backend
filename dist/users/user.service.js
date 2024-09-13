@@ -17,14 +17,50 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./user.entity");
+const bcrypt = require("bcrypt");
 let UserService = class UserService {
     constructor(usersRepository) {
         this.usersRepository = usersRepository;
     }
     async create(data) {
-        const user = this.usersRepository.create(data);
-        await this.usersRepository.save(user);
-        return user;
+        try {
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(data.hashedPassword, saltRounds);
+            const user = this.usersRepository.create({
+                ...data,
+                hashedPassword,
+            });
+            await this.usersRepository.insert(user);
+            return user;
+        }
+        catch (error) {
+            if (error instanceof typeorm_2.QueryFailedError && error.message.includes('Duplicate')) {
+                throw new Error('Bu e-posta zaten kullanılıyor.');
+            }
+            throw new Error('Kayıt sırasında bir hata oluştu.');
+        }
+    }
+    async update(data) {
+        const user = await this.usersRepository.findOne({ where: { mail: data.mail } });
+        if (!user) {
+            throw new Error('Kullanıcı bulunamadı.');
+        }
+        const isMatch = await bcrypt.compare(data.oldPassword, user.hashedPassword);
+        if (!isMatch) {
+            throw new Error('Eski parola hatalı.');
+        }
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(data.hashedPassword, saltRounds);
+        const updatedUser = {
+            ...user,
+            hashedPassword,
+        };
+        await this.usersRepository.save(updatedUser);
+        return updatedUser;
+    }
+    async delete(data) {
+        await this.usersRepository.delete(data);
+        return { deleted: true };
     }
     async readAll() {
         return await this.usersRepository.find();

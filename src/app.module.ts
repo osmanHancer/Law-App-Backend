@@ -6,17 +6,17 @@ import { UserModule } from './users/user.module';
 
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-  	"type": "mysql",
-  	"host": "mysqltubitak-ohancer74-754d.l.aivencloud.com",
-  	"port": 20210,
-  	"username": "avnadmin",
-  	"password": "AVNS_UvV-Ign5rZP5i099-PL",
-  	"database": "test",
-  	"synchronize": true,
-	  ssl: {
-		rejectUnauthorized: true,
-		ca: `-----BEGIN CERTIFICATE-----
+	imports: [TypeOrmModule.forRoot({
+		"type": "mysql",
+		"host": "mysqltubitak-ohancer74-754d.l.aivencloud.com",
+		"port": 20210,
+		"username": "avnadmin",
+		"password": "AVNS_UvV-Ign5rZP5i099-PL",
+		"database": "test",
+		"synchronize": true,
+		ssl: {
+			rejectUnauthorized: true,
+			ca: `-----BEGIN CERTIFICATE-----
 MIIEQTCCAqmgAwIBAgIURJogNSeObVjIp8OSesLLC9RJmrUwDQYJKoZIhvcNAQEM
 BQAwOjE4MDYGA1UEAwwvMzRhYmZlNjQtMWY0OS00NmUxLWE2M2ItYmQ0ZGY3MDI3
 YTFiIFByb2plY3QgQ0EwHhcNMjQwODA4MDczODIwWhcNMzQwODA2MDczODIwWjA6
@@ -42,11 +42,11 @@ B5mLtHq9klQdVvJCm2supWkv+fCcPU1HnjhGvCPWkmE6Wm6GIr70TcYdHq3Kt3RG
 hRIBCuCMNIAJkLlmC5y2aXomBRLyR/au1BnriN9sabitE7HcGw==
 -----END CERTIFICATE-----
 `
-	  },
-  	entities: [__dirname + '/../**/*.entity.js'] 
-	
-  }), UserModule],
-  controllers: [AppController],
-  providers: [AppService],
+		},
+		entities: [__dirname + '/../**/*.entity.js']
+
+	}), UserModule],
+	controllers: [AppController],
+	providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
