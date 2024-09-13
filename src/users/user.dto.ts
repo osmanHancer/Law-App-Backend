@@ -3,14 +3,14 @@ import { Type } from "class-transformer";
 export class UserDTO {
 
  
+  mail: string;
+
   name: string;
 
- 
-  passw : string;
+  surname: string;
 
-  
-  @Type(() => Number)
-  id : number;
+  hashedPassword: string; 
 
-  color : string;
+
+
   }

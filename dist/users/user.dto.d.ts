@@ -1,6 +1,6 @@
 export declare class UserDTO {
+    mail: string;
     name: string;
-    passw: string;
-    id: number;
-    color: string;
+    surname: string;
+    hashedPassword: string;
 }
