@@ -64,9 +64,7 @@ export class UserService {
     return { deleted: true };
   }
 
-  // async readAllseyyah(seyahname_kodu: string) {
-  //   return await this.usersRepository.find({ where: { seyahname_kodu: seyahname_kodu } });
-  // }
+
 
   async readAll() {
 
@@ -74,8 +72,5 @@ export class UserService {
   }
 
 
-  // async delete(id: number) {
-  //   await this.usersRepository.delete({ id });
-  //   return { deleted: true };
-  // }
+
 }
