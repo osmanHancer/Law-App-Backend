@@ -27,6 +27,14 @@ __decorate([
     __metadata("design:type", String)
 ], UserEntity.prototype, "surname", void 0);
 __decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'datetime' }),
+    __metadata("design:type", Date)
+], UserEntity.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'datetime' }),
+    __metadata("design:type", Date)
+], UserEntity.prototype, "updatedAt", void 0);
+__decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], UserEntity.prototype, "hashedPassword", void 0);

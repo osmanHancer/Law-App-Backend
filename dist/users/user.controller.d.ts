@@ -10,6 +10,8 @@ export declare class UserController {
         mail: string;
         name: string;
         surname: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     delete(createCreateuserDto: UserDTO): Promise<{
         deleted: boolean;

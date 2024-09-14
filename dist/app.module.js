@@ -12,6 +12,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const user_module_1 = require("./users/user.module");
+const davalar_module_1 = require("./davalar/davalar.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -54,8 +55,11 @@ hRIBCuCMNIAJkLlmC5y2aXomBRLyR/au1BnriN9sabitE7HcGw==
 -----END CERTIFICATE-----
 `
                 },
-                entities: [__dirname + '/../**/*.entity.js']
-            }), user_module_1.UserModule],
+                entities: [__dirname + '/../**/*.entity.js'],
+                cache: {
+                    duration: 60000
+                }
+            }), user_module_1.UserModule, davalar_module_1.DavalarModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

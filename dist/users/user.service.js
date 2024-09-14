@@ -65,6 +65,29 @@ let UserService = class UserService {
     async readAll() {
         return await this.usersRepository.find();
     }
+    async findOne(mail, passw) {
+        const user = await this.usersRepository.findOne({ where: { mail } });
+        if (!user) {
+            return {
+                statusCode: common_1.HttpStatus.OK,
+                message: 'Kullanıcı Bulunamdı',
+                user,
+            };
+        }
+        const isMatch = await bcrypt.compare(passw, user.hashedPassword);
+        if (!isMatch) {
+            return {
+                statusCode: common_1.HttpStatus.OK,
+                message: 'Şifre Yanlış',
+                user,
+            };
+        }
+        return {
+            statusCode: common_1.HttpStatus.OK,
+            message: 'Login successful',
+            user,
+        };
+    }
 };
 exports.UserService = UserService;
 exports.UserService = UserService = __decorate([

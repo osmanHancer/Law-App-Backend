@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './users/user.module';
+import { DavalarModule } from './davalar/davalar.module';
+
 
 
 @Module({
@@ -43,9 +45,12 @@ hRIBCuCMNIAJkLlmC5y2aXomBRLyR/au1BnriN9sabitE7HcGw==
 -----END CERTIFICATE-----
 `
 		},
-		entities: [__dirname + '/../**/*.entity.js']
+		entities: [__dirname + '/../**/*.entity.js'],
 
-	}), UserModule],
+		cache: {
+			duration: 60000 // 60 saniye boyunca cache'le
+		}
+	}), UserModule, DavalarModule],
 	controllers: [AppController],
 	providers: [AppService],
 })

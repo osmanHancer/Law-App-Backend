@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { QueryFailedError, Repository } from 'typeorm';
 import { UserEntity } from './user.entity';
@@ -70,6 +70,35 @@ export class UserService {
 
     return await this.usersRepository.find();
   }
+
+  async findOne(mail: string, passw: string) {
+  
+    const user = await this.usersRepository.findOne({ where: { mail } });
+    if (!user) {
+      return {
+        statusCode: HttpStatus.OK,
+        message: 'Kullanıcı Bulunamdı',
+        user,
+      };
+    }
+  
+    const isMatch = await bcrypt.compare(passw, user.hashedPassword);
+  
+    if (!isMatch) {
+        return {
+        statusCode: HttpStatus.OK,
+        message: 'Şifre Yanlış',
+        user,
+      };
+    }
+  
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'Login successful',
+      user,
+    };
+  }
+  
 
 
 

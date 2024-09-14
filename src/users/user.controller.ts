@@ -30,7 +30,6 @@ export class UserController {
 
   }
 
-
   @Post("/delete")
   delete(@Body() createCreateuserDto: UserDTO) {
 

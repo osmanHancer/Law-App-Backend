@@ -3,4 +3,6 @@ export declare class UserDTO {
     name: string;
     surname: string;
     hashedPassword: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

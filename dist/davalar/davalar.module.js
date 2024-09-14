@@ -6,21 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModule = void 0;
+exports.DavalarModule = void 0;
 const common_1 = require("@nestjs/common");
+const davalar_service_1 = require("./davalar.service");
+const davalar_controller_1 = require("./davalar.controller");
 const typeorm_1 = require("@nestjs/typeorm");
-const user_entity_1 = require("./user.entity");
-const user_controller_1 = require("./user.controller");
-const user_service_1 = require("./user.service");
-const login_controller_1 = require("./login.controller");
-let UserModule = class UserModule {
+const davalar_entity_1 = require("./davalar.entity");
+let DavalarModule = class DavalarModule {
 };
-exports.UserModule = UserModule;
-exports.UserModule = UserModule = __decorate([
+exports.DavalarModule = DavalarModule;
+exports.DavalarModule = DavalarModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.UserEntity])],
-        controllers: [user_controller_1.UserController, login_controller_1.LoginController],
-        providers: [user_service_1.UserService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([davalar_entity_1.DavalarEntity])],
+        controllers: [davalar_controller_1.DavalarController],
+        providers: [davalar_service_1.DavalarService],
     })
-], UserModule);
-//# sourceMappingURL=user.module.js.map
+], DavalarModule);
+//# sourceMappingURL=davalar.module.js.map
