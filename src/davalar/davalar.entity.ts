@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, Unique } from 'typeorm';
 
 @Entity('Davalar')
-@Unique(['id', 'mail'])  // id ve mail sütunlarının birleşik benzersiz olması
 export class DavalarEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;

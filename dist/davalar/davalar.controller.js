@@ -21,7 +21,6 @@ let DavalarController = class DavalarController {
         this.davalarService = davalarService;
     }
     create(createDavalarDto) {
-        console.log("");
         return this.davalarService.create(createDavalarDto);
     }
     findAll() {

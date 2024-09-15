@@ -99,7 +99,6 @@ __decorate([
     __metadata("design:type", Date)
 ], DavalarEntity.prototype, "createdAt", void 0);
 exports.DavalarEntity = DavalarEntity = __decorate([
-    (0, typeorm_1.Entity)('Davalar'),
-    (0, typeorm_1.Unique)(['id', 'mail'])
+    (0, typeorm_1.Entity)('Davalar')
 ], DavalarEntity);
 //# sourceMappingURL=davalar.entity.js.map
