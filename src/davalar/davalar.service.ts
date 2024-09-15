@@ -26,8 +26,10 @@ export class DavalarService {
     return user;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} davalar`;
+  findOne(mail: string) {
+    const user = this.usersRepository.find({where:{mail:mail}});
+
+    return user;
   }
 
   update(id: number, updateDavalarDto: CreateDavalarDto) {

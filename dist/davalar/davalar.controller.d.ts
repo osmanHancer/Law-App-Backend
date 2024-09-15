@@ -5,7 +5,7 @@ export declare class DavalarController {
     constructor(davalarService: DavalarService);
     create(createDavalarDto: CreateDavalarDto): Promise<import("./davalar.entity").DavalarEntity>;
     findAll(): Promise<import("./davalar.entity").DavalarEntity[]>;
-    findOne(id: string): string;
+    findOne(mail: string): Promise<import("./davalar.entity").DavalarEntity[]>;
     update(id: string, updateDavalarDto: CreateDavalarDto): string;
     remove(id: string): string;
 }

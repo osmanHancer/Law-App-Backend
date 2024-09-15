@@ -30,8 +30,9 @@ let DavalarService = class DavalarService {
         const user = await this.usersRepository.find();
         return user;
     }
-    findOne(id) {
-        return `This action returns a #${id} davalar`;
+    findOne(mail) {
+        const user = this.usersRepository.find({ where: { mail: mail } });
+        return user;
     }
     update(id, updateDavalarDto) {
         return `This action updates a #${id} davalar`;

@@ -1,7 +1,6 @@
-export declare class DavalarEntity {
+export declare class Dava {
     id: number;
     dosyaNo: string;
-    mail: string;
     davaciAdi: string;
     davaciSoyadi: string;
     davaciAdresi: string;
@@ -18,6 +17,6 @@ export declare class DavalarEntity {
     gorevliMahkeme: string;
     davaAsamasi: string;
     notlar: string;
-    updatedAt: Date;
     createdAt: Date;
+    updatedAt: Date;
 }

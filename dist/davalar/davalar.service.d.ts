@@ -6,7 +6,7 @@ export declare class DavalarService {
     constructor(usersRepository: Repository<DavalarEntity>);
     create(createDavalarDto: CreateDavalarDto): Promise<DavalarEntity>;
     findAll(): Promise<DavalarEntity[]>;
-    findOne(id: number): string;
+    findOne(mail: string): Promise<DavalarEntity[]>;
     update(id: number, updateDavalarDto: CreateDavalarDto): string;
     remove(id: number): string;
 }

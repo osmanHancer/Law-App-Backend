@@ -17,9 +17,9 @@ export class DavalarController {
     return this.davalarService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.davalarService.findOne(+id);
+  @Get(':mail')
+  findOne(@Param('mail') mail: string) {
+    return this.davalarService.findOne(mail);
   }
 
   @Patch(':id')

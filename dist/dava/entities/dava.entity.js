@@ -9,97 +9,92 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DavalarEntity = void 0;
+exports.Dava = void 0;
 const typeorm_1 = require("typeorm");
-let DavalarEntity = class DavalarEntity {
+let Dava = class Dava {
 };
-exports.DavalarEntity = DavalarEntity;
+exports.Dava = Dava;
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)('increment'),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], DavalarEntity.prototype, "id", void 0);
+], Dava.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "dosyaNo", void 0);
+], Dava.prototype, "dosyaNo", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "mail", void 0);
+], Dava.prototype, "davaciAdi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaciAdi", void 0);
+], Dava.prototype, "davaciSoyadi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaciSoyadi", void 0);
+], Dava.prototype, "davaciAdresi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaciAdresi", void 0);
+], Dava.prototype, "davaciIletisim", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaciIletisim", void 0);
+], Dava.prototype, "davaciMeslegi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaciMeslegi", void 0);
+], Dava.prototype, "davaliAdi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaliAdi", void 0);
+], Dava.prototype, "davaliSoyadi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaliSoyadi", void 0);
+], Dava.prototype, "davaliAdresi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaliAdresi", void 0);
+], Dava.prototype, "davaliIletisim", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaliIletisim", void 0);
+], Dava.prototype, "davaliMeslegi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaliMeslegi", void 0);
+], Dava.prototype, "genelBilgiler", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "genelBilgiler", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], DavalarEntity.prototype, "il", void 0);
+], Dava.prototype, "il", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'date' }),
     __metadata("design:type", Date)
-], DavalarEntity.prototype, "baslamaTarihi", void 0);
+], Dava.prototype, "baslamaTarihi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "gorevliMahkeme", void 0);
+], Dava.prototype, "gorevliMahkeme", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "davaAsamasi", void 0);
+], Dava.prototype, "davaAsamasi", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], DavalarEntity.prototype, "notlar", void 0);
+], Dava.prototype, "notlar", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)({ type: 'datetime' }),
+    (0, typeorm_1.Column)({ type: 'datetime' }),
     __metadata("design:type", Date)
-], DavalarEntity.prototype, "updatedAt", void 0);
+], Dava.prototype, "createdAt", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)({ type: 'datetime' }),
+    (0, typeorm_1.Column)({ type: 'datetime' }),
     __metadata("design:type", Date)
-], DavalarEntity.prototype, "createdAt", void 0);
-exports.DavalarEntity = DavalarEntity = __decorate([
-    (0, typeorm_1.Entity)('Davalar'),
-    (0, typeorm_1.Unique)(['id', 'mail'])
-], DavalarEntity);
-//# sourceMappingURL=davalar.entity.js.map
+], Dava.prototype, "updatedAt", void 0);
+exports.Dava = Dava = __decorate([
+    (0, typeorm_1.Entity)()
+], Dava);
+//# sourceMappingURL=dava.entity.js.map
