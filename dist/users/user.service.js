@@ -19,6 +19,9 @@ const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./user.entity");
 const bcrypt = require("bcrypt");
 let UserService = class UserService {
+    delete(createCreateuserDto) {
+        throw new Error('Method not implemented.');
+    }
     constructor(usersRepository) {
         this.usersRepository = usersRepository;
     }
@@ -40,7 +43,7 @@ let UserService = class UserService {
             throw new Error('Kayıt sırasında bir hata oluştu.');
         }
     }
-    async update(data) {
+    async updatepassw(data) {
         const user = await this.usersRepository.findOne({ where: { mail: data.mail } });
         if (!user) {
             throw new Error('Kullanıcı bulunamadı.');
@@ -58,9 +61,19 @@ let UserService = class UserService {
         await this.usersRepository.save(updatedUser);
         return updatedUser;
     }
-    async delete(data) {
-        await this.usersRepository.delete(data);
-        return { deleted: true };
+    async updateMail(data) {
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(data.hashedPassword, saltRounds);
+        await this.usersRepository.update({ mail: data.oldMail }, {
+            mail: data.newMail,
+            name: data.name,
+            surname: data.surname,
+            hashedPassword,
+        });
+        const updatedUser = await this.usersRepository.findOne({
+            where: { mail: data.newMail },
+        });
+        return updatedUser;
     }
     async readAll() {
         return await this.usersRepository.find();

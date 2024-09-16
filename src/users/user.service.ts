@@ -4,9 +4,13 @@ import { QueryFailedError, Repository } from 'typeorm';
 import { UserEntity } from './user.entity';
 import * as bcrypt from 'bcrypt';
 import { UserDTO } from './user.dto';
+import { use } from 'passport';
 
 @Injectable()
 export class UserService {
+  delete(createCreateuserDto: UserDTO) {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectRepository(UserEntity)
     private usersRepository: Repository<UserEntity>
@@ -14,8 +18,8 @@ export class UserService {
 
   async create(data: UserDTO) {
     try {
-   
-      const saltRounds = 10; 
+
+      const saltRounds = 10;
       const hashedPassword = await bcrypt.hash(data.hashedPassword, saltRounds);
 
       const user = this.usersRepository.create({
@@ -32,38 +36,53 @@ export class UserService {
       throw new Error('Kayıt sırasında bir hata oluştu.');
     }
   }
-  async update(data: any) {
+  async updatepassw(data: any) {
     const user = await this.usersRepository.findOne({ where: { mail: data.mail } });
-  
+
     if (!user) {
       throw new Error('Kullanıcı bulunamadı.');
     }
-  
+
     const isMatch = await bcrypt.compare(data.oldPassword, user.hashedPassword);
-  
+
     if (!isMatch) {
       throw new Error('Eski parola hatalı.');
     }
-  
+
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(data.hashedPassword, saltRounds);
-  
+
     const updatedUser = {
       ...user,
-      hashedPassword, 
+      hashedPassword,
     };
-  
+
     await this.usersRepository.save(updatedUser);
-  
+
     return updatedUser;
   }
-  
-  async delete(data: UserDTO) {
-    
-      await this.usersRepository.delete(data);
-    return { deleted: true };
-  }
+  async updateMail(data: { oldMail: string, newMail: string, hashedPassword: string, name: string, surname: string }) {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(data.hashedPassword, saltRounds);
 
+  
+    await this.usersRepository.update(
+      { mail: data.oldMail }, 
+      {
+        mail: data.newMail,  
+        name: data.name,     
+        surname: data.surname, 
+        hashedPassword,      
+      },
+    );
+
+    // Güncellenen kullanıcıyı geri döndür
+    const updatedUser = await this.usersRepository.findOne({
+      where: { mail: data.newMail }, // Yeni mail ile kullanıcıyı getir
+    });
+
+    return updatedUser;
+  }
 
 
   async readAll() {
@@ -72,7 +91,7 @@ export class UserService {
   }
 
   async findOne(mail: string, passw: string) {
-  
+
     const user = await this.usersRepository.findOne({ where: { mail } });
     if (!user) {
       return {
@@ -81,24 +100,24 @@ export class UserService {
         user,
       };
     }
-  
+
     const isMatch = await bcrypt.compare(passw, user.hashedPassword);
-  
+
     if (!isMatch) {
-        return {
+      return {
         statusCode: HttpStatus.OK,
         message: 'Şifre Yanlış',
         user,
       };
     }
-  
+
     return {
       statusCode: HttpStatus.OK,
       message: 'Login successful',
       user,
     };
   }
-  
+
 
 
 

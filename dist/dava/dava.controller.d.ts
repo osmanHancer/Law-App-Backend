@@ -7,7 +7,7 @@ export declare class DavaController {
     private readonly davaService;
     constructor(davaService: DavaService);
     create(createDavaDto: CreateDavaDto): Promise<Dava>;
-    findAll(): Promise<void>;
+    findAll(): Promise<Dava[]>;
     findOne(id: string, res: Response): Promise<Response>;
     update(id: string, updateDavaDto: UpdateDavaDto, res: Response): Promise<Response>;
     remove(id: string, res: Response): Promise<Response>;

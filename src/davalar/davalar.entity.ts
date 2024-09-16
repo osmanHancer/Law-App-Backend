@@ -14,51 +14,51 @@ export class DavalarEntity {
   // Davacı Bilgileri
   @Column()
   davaciAdi: string;
-  
+
   @Column()
   davaciSoyadi: string;
-  
+
   @Column()
   davaciAdresi: string;
-  
+
   @Column()
   davaciIletisim: string;
-  
+
   @Column()
   davaciMeslegi: string;
 
   // Davalı Bilgileri
   @Column()
   davaliAdi: string;
-  
+
   @Column()
   davaliSoyadi: string;
-  
+
   @Column()
   davaliAdresi: string;
-  
+
   @Column()
   davaliIletisim: string;
-  
+
   @Column()
   davaliMeslegi: string;
 
   // Genel Bilgiler
   @Column()
   genelBilgiler: string;
-  
+
   @Column()
   il: string;
-  
-  @Column({ type: 'date' })
+
+  @UpdateDateColumn({ type: 'datetime' })
   baslamaTarihi: Date;
-  
+
   @Column()
   gorevliMahkeme: string;
-  
+
   @Column()
   davaAsamasi: string;
-  
+
   @Column()
   notlar: string;
 

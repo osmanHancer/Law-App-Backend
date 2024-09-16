@@ -75,7 +75,7 @@ __decorate([
     __metadata("design:type", String)
 ], DavalarEntity.prototype, "il", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'date' }),
+    (0, typeorm_1.UpdateDateColumn)({ type: 'datetime' }),
     __metadata("design:type", Date)
 ], DavalarEntity.prototype, "baslamaTarihi", void 0);
 __decorate([
