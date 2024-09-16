@@ -25,7 +25,7 @@ let DavaController = class DavaController {
         return this.davaService.create(createDavaDto);
     }
     async findAll() {
-        console.log("osman");
+        return this.davaService.findAll();
     }
     async findOne(id, res) {
         const dava = await this.davaService.findOne(+id);

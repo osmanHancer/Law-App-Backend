@@ -26,8 +26,7 @@ export class DavaController {
 
   @Get()
   async findAll() {
-    console.log("osman")
-    // return this.davaService.findAll();
+    return this.davaService.findAll();
   }
 
   @Get(':id')

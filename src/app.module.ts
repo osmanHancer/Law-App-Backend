@@ -16,6 +16,7 @@ import { DavaModule } from './dava/dava.module';
 		"username": "avnadmin",
 		"password": "AVNS_UvV-Ign5rZP5i099-PL",
 		"database": "test",
+		 timezone: '+00:00',
 		"synchronize": true,
 		ssl: {
 			rejectUnauthorized: true,

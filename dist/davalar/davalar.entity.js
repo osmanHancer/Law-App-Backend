@@ -75,10 +75,6 @@ __decorate([
     __metadata("design:type", String)
 ], DavalarEntity.prototype, "il", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'date' }),
-    __metadata("design:type", Date)
-], DavalarEntity.prototype, "baslamaTarihi", void 0);
-__decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], DavalarEntity.prototype, "gorevliMahkeme", void 0);
@@ -91,13 +87,20 @@ __decorate([
     __metadata("design:type", String)
 ], DavalarEntity.prototype, "notlar", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)({ type: 'datetime' }),
+    (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], DavalarEntity.prototype, "updatedAt", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)({ type: 'datetime' }),
+    (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], DavalarEntity.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: false,
+        type: 'timestamp',
+    }),
+    __metadata("design:type", Date)
+], DavalarEntity.prototype, "baslamaTarihi", void 0);
 exports.DavalarEntity = DavalarEntity = __decorate([
     (0, typeorm_1.Entity)('Davalar')
 ], DavalarEntity);

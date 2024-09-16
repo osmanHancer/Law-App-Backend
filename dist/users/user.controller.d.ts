@@ -13,9 +13,8 @@ export declare class UserController {
         createdAt: Date;
         updatedAt: Date;
     }>;
-    delete(createCreateuserDto: UserDTO): Promise<{
-        deleted: boolean;
-    }>;
+    updatemail(createCreateuserDto: any): Promise<import("./user.entity").UserEntity>;
+    delete(createCreateuserDto: UserDTO): void;
     readAllUsers(): Promise<{
         statusCode: HttpStatus;
         message: string;

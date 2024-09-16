@@ -24,7 +24,10 @@ let UserController = class UserController {
         return this.usersService.create(createCreateuserDto);
     }
     updatepassw(createCreateuserDto) {
-        return this.usersService.update(createCreateuserDto);
+        return this.usersService.updatepassw(createCreateuserDto);
+    }
+    updatemail(createCreateuserDto) {
+        return this.usersService.updateMail(createCreateuserDto);
     }
     delete(createCreateuserDto) {
         return this.usersService.delete(createCreateuserDto);
@@ -53,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updatepassw", null);
+__decorate([
+    (0, common_1.Post)("/update/mail"),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "updatemail", null);
 __decorate([
     (0, common_1.Post)("/delete"),
     __param(0, (0, common_1.Body)()),

@@ -26,7 +26,12 @@ export class UserController {
   @Post("/update/passw")
   updatepassw(@Body() createCreateuserDto: any) {
 
-    return this.usersService.update(createCreateuserDto);
+    return this.usersService.updatepassw(createCreateuserDto);
+
+  }
+  @Post("/update/mail")
+  updatemail(@Body() createCreateuserDto: any) {
+    return this.usersService.updateMail(createCreateuserDto);
 
   }
 

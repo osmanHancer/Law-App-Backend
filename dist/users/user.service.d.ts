@@ -4,9 +4,10 @@ import { UserEntity } from './user.entity';
 import { UserDTO } from './user.dto';
 export declare class UserService {
     private usersRepository;
+    delete(createCreateuserDto: UserDTO): void;
     constructor(usersRepository: Repository<UserEntity>);
     create(data: UserDTO): Promise<UserEntity>;
-    update(data: any): Promise<{
+    updatepassw(data: any): Promise<{
         hashedPassword: any;
         mail: string;
         name: string;
@@ -14,9 +15,13 @@ export declare class UserService {
         createdAt: Date;
         updatedAt: Date;
     }>;
-    delete(data: UserDTO): Promise<{
-        deleted: boolean;
-    }>;
+    updateMail(data: {
+        oldMail: string;
+        newMail: string;
+        hashedPassword: string;
+        name: string;
+        surname: string;
+    }): Promise<UserEntity>;
     readAll(): Promise<UserEntity[]>;
     findOne(mail: string, passw: string): Promise<{
         statusCode: HttpStatus;

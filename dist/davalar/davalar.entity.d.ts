@@ -14,10 +14,10 @@ export declare class DavalarEntity {
     davaliMeslegi: string;
     genelBilgiler: string;
     il: string;
-    baslamaTarihi: Date;
     gorevliMahkeme: string;
     davaAsamasi: string;
     notlar: string;
     updatedAt: Date;
     createdAt: Date;
+    baslamaTarihi: Date;
 }
