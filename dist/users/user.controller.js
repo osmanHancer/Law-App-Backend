@@ -27,7 +27,6 @@ let UserController = class UserController {
         return this.usersService.updatepassw(createCreateuserDto);
     }
     updatemail(createCreateuserDto) {
-        console.log("osman");
         return this.usersService.updateMail(createCreateuserDto);
     }
     delete(createCreateuserDto) {
