@@ -50,7 +50,12 @@ export class DavalarEntity {
   @Column()
   il: string;
 
+<<<<<<< HEAD
 
+=======
+  @UpdateDateColumn({ type: 'datetime' })
+  baslamaTarihi: Date;
+>>>>>>> c8b6d475c6db84bc4bdff9c77ae2cbd7ba4eaac3
 
   @Column()
   gorevliMahkeme: string;
